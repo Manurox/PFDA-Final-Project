@@ -141,12 +141,23 @@ class Game():
             self.pen.rt(90)
         self.pen.penup()
         self.pen.ht()
+        self.pen.pendown()
+
+    def show_status(self):
+        self.pen.undo()
+        msg = "Score: %s" %(self.score)
+        self.pen.penup()
+        self.pen.goto(-300, 300)
+        self.pen.write(msg, font=("Arial", 16, "normal"))
 
 # Create Game Object
 game = Game()
 
 # Draw the game border
 game.draw_border()
+
+# Show the game status
+game.show_status()
 
 # Create Sprites
 player = Player("triangle", "white", 0, 0)
@@ -169,11 +180,13 @@ while True:
     missile.move()
     ally.move()
 
-    # Check for collisions
+    # Check for collision between Player and enemy
     if player.is_collision(enemy):
         x = random.randint(-250, 250)
         y = random.randint(-250, 250)
         enemy.goto(x, y)
+        game.score -= 100
+        game.show_status()
 
     # Checl for collisions between enemy and missile
     if missile.is_collision(enemy):
@@ -181,6 +194,9 @@ while True:
         y = random.randint(-250, 250)
         enemy.goto(x, y)
         missile.status = "ready"
+        # Increase Score
+        game.score +=100
+        game.show_status()
 
     # Check for collisions between missile and ally
     if missile.is_collision(ally):
@@ -188,3 +204,6 @@ while True:
         y = random.randint(-250, 250)
         ally.goto(x, y)
         missile.status = "ready"
+        # Decrease score
+        game.score -= 100
+        game.show_status()
