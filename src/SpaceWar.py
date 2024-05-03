@@ -1,13 +1,14 @@
 import os
 import random
 import turtle
+import time
 
 turtle.Screen()
 turtle.speed(0)
 turtle.bgcolor("black")
 turtle.ht()
 turtle.setundobuffer(1)
-turtle.tracer(1)
+turtle.tracer(0)
 
 class Sprite(turtle.Turtle):
     def __init__(self, spriteshape, color, startx, starty):
@@ -44,7 +45,6 @@ class Sprite(turtle.Turtle):
             return True
         else: 
             return False
-
 
 class Player(Sprite):
     def __init__(self, spriteshape, color, startx, starty):
@@ -182,7 +182,11 @@ turtle.onkey(missile.fire, "space")
 turtle.listen()
 
 # Main Game Loop
-while True: 
+while True:
+
+    turtle.update()
+    time.sleep(0.03)
+
     player.move()
     # enemy.move()
     missile.move()
@@ -221,8 +225,5 @@ while True:
             # Decrease score
             game.score -= 50
             game.show_status()
-        
-
-    
 
     
