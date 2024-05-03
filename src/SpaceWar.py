@@ -161,9 +161,17 @@ game.show_status()
 
 # Create Sprites
 player = Player("triangle", "white", 0, 0)
-enemy = Enemy("circle", "red", -100, 0)
+# enemy = Enemy("circle", "red", -100, 0)
 missile = Missile("triangle", "yellow", 0, 0)
-ally = Ally("square", "blue", 0, 0)
+# ally = Ally("square", "blue", 0, 0)
+
+enemies = []
+for i in range(6):
+    enemies.append(Enemy("circle", "red", -100, 0))
+
+allies = []
+for i in range(6):
+    allies.append(Ally("square", "blue", 100, 0))
 
 # Keyboard Bindings
 turtle.onkey(player.turn_left, "Left")
@@ -176,34 +184,45 @@ turtle.listen()
 # Main Game Loop
 while True: 
     player.move()
-    enemy.move()
+    # enemy.move()
     missile.move()
-    ally.move()
+    # ally.move()
 
-    # Check for collision between Player and enemy
-    if player.is_collision(enemy):
-        x = random.randint(-250, 250)
-        y = random.randint(-250, 250)
-        enemy.goto(x, y)
-        game.score -= 100
-        game.show_status()
+    for enemy in enemies:
+        enemy.move()
 
-    # Checl for collisions between enemy and missile
-    if missile.is_collision(enemy):
-        x = random.randint(-250, 250)
-        y = random.randint(-250, 250)
-        enemy.goto(x, y)
-        missile.status = "ready"
-        # Increase Score
-        game.score +=100
-        game.show_status()
+        # Check for collision between Player and enemy
+        if player.is_collision(enemy):
+            x = random.randint(-250, 250)
+            y = random.randint(-250, 250)
+            enemy.goto(x, y)
+            game.score -= 100
+            game.show_status()
 
-    # Check for collisions between missile and ally
-    if missile.is_collision(ally):
-        x = random.randint(-250, 250)
-        y = random.randint(-250, 250)
-        ally.goto(x, y)
-        missile.status = "ready"
-        # Decrease score
-        game.score -= 100
-        game.show_status()
+        # Checl for collisions between enemy and missile
+        if missile.is_collision(enemy):
+            x = random.randint(-250, 250)
+            y = random.randint(-250, 250)
+            enemy.goto(x, y)
+            missile.status = "ready"
+            # Increase Score
+            game.score +=100
+            game.show_status()
+
+    for ally in allies:
+        ally.move()
+
+        # Check for collisions between missile and ally
+        if missile.is_collision(ally):
+            x = random.randint(-250, 250)
+            y = random.randint(-250, 250)
+            ally.goto(x, y)
+            missile.status = "ready"
+            # Decrease score
+            game.score -= 50
+            game.show_status()
+        
+
+    
+
+    
