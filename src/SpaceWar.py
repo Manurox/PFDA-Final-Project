@@ -5,6 +5,7 @@ import time
 
 turtle.Screen()
 turtle.speed(0)
+turtle.bgpic(spacebg.gif)
 turtle.bgcolor("black")
 turtle.ht()
 turtle.setundobuffer(1)
