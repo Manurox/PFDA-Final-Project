@@ -2,11 +2,13 @@ import os
 import random
 import turtle
 import time
+import winsound
 
 turtle.Screen()
 turtle.speed(0)
-turtle.bgpic(spacebg.gif)
+# turtle.bgpic("starbg.gif")
 turtle.bgcolor("black")
+turtle.title("SpaceWar")
 turtle.ht()
 turtle.setundobuffer(1)
 turtle.tracer(0)
@@ -50,6 +52,7 @@ class Sprite(turtle.Turtle):
 class Player(Sprite):
     def __init__(self, spriteshape, color, startx, starty):
         Sprite.__init__(self, spriteshape, color, startx, starty)
+        self.shapesize(stretch_wid=0.6, stretch_len=1.1, outline=None)
         self.speed = 4
         self.lives = 3
     
@@ -121,6 +124,27 @@ class Ally(Sprite):
             self.sety(-290)
             self.lt(60)
 
+class Particle(Sprite):
+    def __init__(self, spriteshape, color, startx, starty):
+        Sprite.__init__(self, spriteshape, color, startx, starty)
+        self.shapesize(stretch_wid=0.1, stretch_len=0.1, outline=None)
+        self.goto(-1000, -1000)
+        self.frame = 0
+
+    def explode(self, startx, starty):
+        self.goto(startx, starty)
+        self.setheading(random.randint(0, 360))
+        self.frame = 1
+
+    def move(self):
+        if self.frame > 0:
+            self.fd(10)
+            self.frame += 1
+
+        if self.frame > 15:
+            self.frame = 0
+            self.goto(-1000, 1000)
+
 class Game():
     def __init__(self):
         self.level = 1
@@ -174,6 +198,11 @@ allies = []
 for i in range(6):
     allies.append(Ally("square", "blue", 100, 0))
 
+particles = []
+for i in range(20):
+    particles.append(Particle("circle", "orange", 0, 0))
+
+
 # Keyboard Bindings
 turtle.onkey(player.turn_left, "Left")
 turtle.onkey(player.turn_right, "Right")
@@ -206,6 +235,7 @@ while True:
 
         # Checl for collisions between enemy and missile
         if missile.is_collision(enemy):
+            winsound.PlaySound("explode.mp3")
             x = random.randint(-250, 250)
             y = random.randint(-250, 250)
             enemy.goto(x, y)
@@ -213,6 +243,9 @@ while True:
             # Increase Score
             game.score +=100
             game.show_status()
+            # Do the explosion
+            for particle in particles:
+                particle.explode(missile.xcor(), missile.ycor())
 
     for ally in allies:
         ally.move()
@@ -226,5 +259,8 @@ while True:
             # Decrease score
             game.score -= 50
             game.show_status()
+
+    for particle in particles:
+        particle.move()
 
     
