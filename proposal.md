@@ -35,3 +35,8 @@ I will need to research and learn how to use:
 #### _Week Three:_
     * Create multiple enemies and allies with random movement
 
+## References 
+#### Youtube Turtorial  
+    Created by _TokyoEdTech_
+    https://www.youtube.com/watch?v=Ak1IDnP5IrI&list=PLlEgNdBJEO-muprNCDYiKLZ-Kc3-p8thS 
+
