@@ -213,56 +213,59 @@ turtle.onkey(missile.fire, "space")
 turtle.listen()
 
 # Main Game Loop
-while True:
+def main():
+    while True:
 
-    turtle.update()
-    time.sleep(0.03)
+        turtle.update()
+        time.sleep(0.03)
 
-    player.move()
-    # enemy.move()
-    missile.move()
-    # ally.move()
+        player.move()
+        # enemy.move()
+        missile.move()
+        # ally.move()
 
-    for enemy in enemies:
-        enemy.move()
+        for enemy in enemies:
+            enemy.move()
 
-        # Check for collision between Player and enemy
-        if player.is_collision(enemy):
-            x = random.randint(-250, 250)
-            y = random.randint(-250, 250)
-            enemy.goto(x, y)
-            game.score -= 100
-            game.show_status()
+            # Check for collision between Player and enemy
+            if player.is_collision(enemy):
+                x = random.randint(-250, 250)
+                y = random.randint(-250, 250)
+                enemy.goto(x, y)
+                game.score -= 100
+                game.show_status()
 
-        # Checl for collisions between enemy and missile
-        if missile.is_collision(enemy):
-            winsound.PlaySound('boom.wav', winsound.SND_ASYNC)
-            x = random.randint(-250, 250)
-            y = random.randint(-250, 250)
-            enemy.goto(x, y)
-            missile.status = "ready"
-            # Increase Score
-            game.score +=100
-            game.show_status()
-            # Do the explosion
-            for particle in particles:
-                particle.explode(missile.xcor(), missile.ycor())
+            # Checl for collisions between enemy and missile
+            if missile.is_collision(enemy):
+                winsound.PlaySound('boom.wav', winsound.SND_ASYNC)
+                x = random.randint(-250, 250)
+                y = random.randint(-250, 250)
+                enemy.goto(x, y)
+                missile.status = "ready"
+                # Increase Score
+                game.score +=100
+                game.show_status()
+                # Do the explosion
+                for particle in particles:
+                    particle.explode(missile.xcor(), missile.ycor())
 
-    for ally in allies:
-        ally.move()
+        for ally in allies:
+            ally.move()
 
-        # Check for collisions between missile and ally
-        if missile.is_collision(ally):
-            winsound.PlaySound('ally-hit.wav', winsound.SND_ASYNC)
-            x = random.randint(-250, 250)
-            y = random.randint(-250, 250)
-            ally.goto(x, y)
-            missile.status = "ready"
-            # Decrease score
-            game.score -= 50
-            game.show_status()
+            # Check for collisions between missile and ally
+            if missile.is_collision(ally):
+                winsound.PlaySound('ally-hit.wav', winsound.SND_ASYNC)
+                x = random.randint(-250, 250)
+                y = random.randint(-250, 250)
+                ally.goto(x, y)
+                missile.status = "ready"
+                # Decrease score
+                game.score -= 50
+                game.show_status()
 
-    for particle in particles:
-        particle.move()
+        for particle in particles:
+            particle.move()
+
+main()
 
     
