@@ -235,7 +235,7 @@ while True:
 
         # Checl for collisions between enemy and missile
         if missile.is_collision(enemy):
-            winsound.PlaySound("explode.mp3")
+            winsound.PlaySound('boom.wav', winsound.SND_ASYNC)
             x = random.randint(-250, 250)
             y = random.randint(-250, 250)
             enemy.goto(x, y)
@@ -252,6 +252,7 @@ while True:
 
         # Check for collisions between missile and ally
         if missile.is_collision(ally):
+            winsound.PlaySound('ally-hit.wav', winsound.SND_ASYNC)
             x = random.randint(-250, 250)
             y = random.randint(-250, 250)
             ally.goto(x, y)
