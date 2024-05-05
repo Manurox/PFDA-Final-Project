@@ -64,6 +64,7 @@ class Player(Sprite):
 
     def accelerate(self):
         self.speed += 1
+        Missile.speed += 1
 
     def decelerate(self):
         self.speed -= 1
