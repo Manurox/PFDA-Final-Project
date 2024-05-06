@@ -1,33 +1,20 @@
 # PFDA-Final-Project
 
-## Space-Asteroid Game
-### **Description**
-This is a Space Invaders inspired game in which a player can move a spaceship to shoot objects. 
+## Project Title - Pixel Shooter
 
-### **Features**
-There will be a point system to monitor the player's progress.
-The player can move his ship around the screen
-    _(Turtle will be used to achieve look and control)._
-There will be two types of obstacles:
-    One to shoot and destroy (Enemies),
-    One to simply avoid (Allies).
+## Demo
 
-### **Research**
-I will need to research and learn how to use:
-* Turtle
-* Object Oriented Programming
 
-## Outcomes
-**Ideal Outcome**
-* An interactive screen in which a player can move around, shoot enemies and score points to create competition and fun moments
+## Github Repository 
 
-**Minimal Viable Outcome**
-* An screen pops up with a moveable character that reacts when hit by objects
+https://github.com/Manurox/PFDA-Final-Project.git  
 
-## Milestones
-#### _Week One:_
-    * A spaceship that can move around with user input
-#### _Week Two:_
-    * Create projectiles launched by the spaceship and create at least one enemy and one ally
-#### _Week Three:_
-    * Create multiple enemies and allies with random movement
+## Description
+
+Pixel Shooter is a 2D animated graphic game made using python's turtle library. This game involves the user moving around a designated zone with enemies, in red, and allies, in blue. The objectove of the game is score points, the higher your score, the better you are. 
+
+I wanted to make an 80's, 90's style arcade game so I used python's turtle library because of the simple look it provides. In Pixel Shooter, the user is a ship, a white triangle, that shoots missiles and dodges enemies. The user has the most versatility when it comes to movement, the ability to speed up, slow down and change direction. 
+
+Every game needs an obstacle. Pixel Shooter has enemies, red circles, which the user will shoot to gain points. However, as every game also has a catch, the player must not hit the enemies with their ship/body because they lose points. 
+
+The user is not on his own in Pixel Shooter because the blue squares are allies, they are simply bodies which the player cannot hit with his body. However, a missile can hit an ally and the user's score will be deducted for such an outrageous atrocity.  

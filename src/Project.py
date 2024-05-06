@@ -191,12 +191,17 @@ player = Player("triangle", "white", 0, 0)
 missile = Missile("triangle", "yellow", 0, 0)
 # ally = Ally("square", "blue", 0, 0)
 
+
+enemy_no = int(input("How many enemies would you like?"))
+ally_no = int(input("How many allies would you like?"))
+
+
 enemies = []
-for i in range(6):
+for i in range(enemy_no):
     enemies.append(Enemy("circle", "red", -100, 0))
 
 allies = []
-for i in range(6):
+for i in range(ally_no):
     allies.append(Ally("square", "blue", 100, 0))
 
 particles = []
@@ -214,6 +219,9 @@ turtle.listen()
 
 # Main Game Loop
 def main():
+
+    
+
     while True:
 
         turtle.update()
