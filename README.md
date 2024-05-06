@@ -1,6 +1,6 @@
 # PFDA-Final-Project
 
-## Pixel Shooter
+# Pixel Shooter
 
 ## Demo
 
@@ -13,7 +13,7 @@ Github Repo: https://github.com/Manurox/PFDA-Final-Project.git
 
 Pixel Shooter is a 2D animated graphic game made using python's turtle library. This game involves the user moving around a designated zone with enemies, in red, and allies, in blue. The objective of the game is to score points, the higher your score, the better you are. 
 
-I wanted to make an 80's/90's style arcade game so I used python's turtle library because of the simple look it provides. In Pixel Shooter, the user can decide the difficulty they want. Before the game begins, the player will be prompted with how many enemies and allies they wish to battle with. I added this feature to allow players to begin slowly and work their way up. 
+I wanted to make an 80's/90's style arcade game so I used python's turtle library because of the simple look it provides. In Pixel Shooter, the user can decide the difficulty they want. Before the game begins, the player will be prompted with how many enemies and allies they wish to battle with. I added this feature to allow players to experience the game at their own pace. This way, they can increase the difficulty as they understand the mechanics and features. 
 
 The user is a ship, a white triangle, that shoots missiles and dodges enemies. The user has the most versatility when it comes to movement, the ability to speed up, slow down and change direction. The player can speed up by pressing the 'up' key, slow down by pressing the 'down' key, and change direction with the 'right' and 'left' keys. 
 
