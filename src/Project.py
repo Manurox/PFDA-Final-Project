@@ -68,6 +68,7 @@ class Player(Sprite):
 
     def decelerate(self):
         self.speed -= 1
+        missile.speed -= 1
 
 class Enemy(Sprite):
     def __init__(self, spriteshape, color, startx, starty):
