@@ -21,6 +21,6 @@ Every game needs an obstacle. Pixel Shooter has enemies, red circles, which the 
 
 The user is not on his own in Pixel Shooter because the blue squares are allies, they are simply bodies which the player does not have the ability to hit with their body. However, a missile can hit an ally and the user's score will be deducted for such an atrocity. As the game lord, I understand it can be a mistake so only 50 points will be deducted. 
 
-To let the user know when an enemy has been hit with a missile versus an ally, specific sound effects will play. An explosion sound effect followed by orange particles flying out when an enemy gets hit with a missile. For an ally, a demeaning monotonous tone plays. The score will change accordingly when a missile hits an enemy or an ally. 
+In the src folder are 2 audio files whihc are used as sound effects. Their purpose is to let the user know when an enemy has been hit with a missile versus an ally, specific sound effects will play. An explosion sound effect followed by orange particles flying out when an enemy gets hit with a missile. For an ally, a demeaning monotonous tone plays. The score will change accordingly when a missile hits an enemy or an ally. 
 
 A future feature I want to add is to decorate the level. At the moment, it is a plain black screen as the background but I think it should have a space theme. Better yet, the user can pick from a list of different backgrounds to add to the player experience. 
