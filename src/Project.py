@@ -220,8 +220,6 @@ turtle.listen()
 # Main Game Loop
 def main():
 
-    
-
     while True:
 
         turtle.update()
